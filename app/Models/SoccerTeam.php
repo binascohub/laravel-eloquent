@@ -10,4 +10,9 @@ class SoccerTeam extends Model
         'name'
     ];
 
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
+
 }
