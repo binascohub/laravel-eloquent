@@ -26,6 +26,12 @@ class CreateClientsTable extends Migration
             $table->string('physical_disability')->nullable();
             $table->string('company_name')->nullable();
             $table->string('client_type');
+            // chave extrangeira
+            $table->integer('soccer_team_id')->unsigned();
+            $table->foreign('soccer_team_id')
+                  ->references('id')
+                  ->on('soccer_teams');
+            // timerstamps
             $table->timestamps();
         });
     }

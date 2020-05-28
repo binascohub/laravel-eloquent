@@ -29,4 +29,10 @@ class Client extends Model
         'client_type'
     ];
 
+
+    // relacionamento many-to-one
+    public function soccerTeam()
+    {
+        $this->belongsTo(SoccerTeam::class);
+    }
 }
