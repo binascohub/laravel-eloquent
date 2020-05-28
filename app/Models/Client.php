@@ -26,13 +26,14 @@ class Client extends Model
         'marital_status',
         'physical_disability',
         'company_name',
-        'client_type'
+        'client_type',
+        'soccer_team_id'
     ];
 
 
     // relacionamento many-to-one
     public function soccerTeam()
     {
-        $this->belongsTo(SoccerTeam::class);
+        return $this->belongsTo(SoccerTeam::class);
     }
 }

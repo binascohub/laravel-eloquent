@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // ajuste para sqlite entender foregnkey
+        if(config('database.default')) {
+            \DB::connection()->getPdo()->exec('PRAGMA foreign_keys=on;');
+        }
+
     }
 }
