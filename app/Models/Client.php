@@ -30,7 +30,6 @@ class Client extends Model
         'soccer_team_id'
     ];
 
-
     // relacionamento many-to-one
     public function soccerTeam()
     {
