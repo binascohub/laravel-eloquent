@@ -5,6 +5,7 @@
 require_once __DIR__.'/../fakerdata/DocumentNumber.php';
 
 use App\Models\Client;
+use App\Models\ClientProfile;
 use Faker\Generator as Faker;
 
 $factory->define(Client::class, function (Faker $faker) {
@@ -34,5 +35,11 @@ $factory->state(Client::class, Client::TYPE_LEGAL, function(Faker $faker) {
         'company_name' => $faker->company,
         'document_number' => $cnpjs[array_rand(cnpjs(), 1)],
         'client_type' => Client::TYPE_LEGAL
+    ];
+});
+
+$factory->define(ClientProfile::class, function (Faker $faker) {
+    return [
+        'field' => $faker->name
     ];
 });
