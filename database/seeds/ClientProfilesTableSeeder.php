@@ -15,13 +15,10 @@ class ClientProfilesTableSeeder extends Seeder
     {
         /** @var \Illuminate\Database\Eloquent\Collection $clients */
         $clients = Client::all();
-        $countClients = $clients->count();
 
-        /** @var \Illuminate\Database\Eloquent\Collection $collectionIndividual */
-        $collectionIndividual = factory(ClientProfile::class, $countClients)->make();
-        $collectionIndividual->each(function($clientProfile) use ($clients){
-            $clientProfile->client_id = $clients->random()->id;
-            $clientProfile->save();
+        $clients->each(function($client){
+            $clientProfile = factory(ClientProfile::class)->make();
+            $client->clientProfile()->create($clientProfile->toArray());
         });
     }
 }

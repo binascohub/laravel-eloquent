@@ -17,7 +17,9 @@ class CreateClientProfilesTable extends Migration
             $table->increments('id');
             $table->string('field');
 
-            $table->integer('client_id')->unsigned();
+            $table->integer('client_id')
+                ->unsigned()
+                ->unique();
             $table->foreign('client_id')
                   ->references('id')
                   ->on('clients');
